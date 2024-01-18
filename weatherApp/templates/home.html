@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Cast</title>
+    <link rel="stylesheet" type="text/css" href="./static/style.css">
+</head>
+<body>
+    <h1>Welcome To The Weather cast Application</h1>
+    <form action="/" method="post">
+
+        <fieldset>
+            <legend>Choose Country Or City:</legend>
+            <div>
+                  <input type="radio" id="city" name="location_type" value="city" checked>
+                  <label for="city">City</label><br>
+                  <input type="radio" id="country" name="location_type" value="country">
+                  <label for="country">Country</label><br>
+            </div>
+        </fieldset>
+
+        <label for="location_name"></label>
+        <input type="text" id="location_name" name="location_name" placeholder="Enter A Country / City"><br><br>
+        <input type="submit">
+
+    </form>
+
+    {% if error %}
+      <p style="color: red; font-size: 30px">{{ error }}</p>
+    {% endif %}
+
+    {% if json_filter is defined %}
+    <h1>The Chosen Location: {{ json_filter.city }}, {{ json_filter.country }}, {{json_filter.flag }}</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Max Temperature (Day)</th>
+                <th>Min Temperature (Night)</th>
+                <th>Humidity (%)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for day in json_filter.days_data %}
+            <tr>
+                <td>{{ day['datetime'] }}</td>
+                <td>{{ day['high_temp'] }}&deg;C</td>
+                <td>{{ day['low_temp'] }}&deg;C</td>
+                <td>{{ day['rh'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</body>
+</html>

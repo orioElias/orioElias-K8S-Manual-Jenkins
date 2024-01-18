@@ -1,0 +1,51 @@
+ body {
+            background-color: #1f4130;
+            color: #CAD3E2;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+            font-size: 20px
+        }
+
+        table {
+            max-width: 80%;
+            margin: 20px auto;
+        }
+
+        table, th, td {
+            border: 1px solid #59788E;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #32465A;
+        }
+
+        form {
+            margin: 20px 0;
+            width: 50%;
+        }
+
+       input[type="text"], input[type="submit"] {
+            box-sizing: border-box;
+            border: 1px solid #59788E;
+            padding: 10px;
+            width: 100%;
+        }
+
+       input[type="submit"] {
+            background-color: #425B70;
+            color: #e0e0e0;
+            cursor: pointer;
+        }
+
+       input[type="text"] {
+            margin-bottom: 8px;
+        }
+
